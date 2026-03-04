@@ -1,26 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chúc mừng 8/3</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc mừng ngày 8/3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="card-left" class="card-flap"></div>
+    <div id="card-right" class="card-flap"></div>
 
-  <body class="fade-in">
-    <audio autoplay loop>
-      <source src="nhacnen/WhoveDMfegk.mp3" type="audio/mpeg" />
-    </audio>
-
-    <div class="container">
-      <h1>🌸 Chúc Mừng 8/3 🌸</h1>
-      <p>Nhập tên của bạn:</p>
-      <input type="text" id="nameInput" placeholder="Nhập tên ở đây..." />
-      <button onclick="checkName()">Xác nhận 💖</button>
+    <div id="flower-portal" class="flower-container hidden">
+        <div class="flower-bloom">
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+            <div class="pollen"></div>
+        </div>
     </div>
 
+    <div id="input-container" class="box-container">
+        <h1>Chào mừng bạn!</h1>
+        <p>Nếu bạn nhập đầy đủ tên của mình sẽ có điều bất ngờ đấy :)</p>
+        <input type="text" id="nameInput" placeholder="Nhập tên tại đây..." autocomplete="off">
+        <br>
+        <button id="btnSubmit">Bắt đầu</button>
+    </div>
+
+    <div id="message-container" class="box-container hidden">
+        <h1 id="displayName"></h1>
+        <p id="greetingText"></p>
+        <button id="btnContinue" style="margin-top: 20px;">Tiếp tục</button>
+    </div>
+
+    <div id="fireworks-overlay" class="hidden">
+        <canvas id="fireworksCanvas"></canvas>
+    </div>
+
+    <div id="final-screen" class="box-container hidden final-box">
+        <h1 class="glow-text">Chúc mừng ngày 8/3!</h1>
+        <p style="color: white; font-size: 1.2rem;">Chúc bạn một ngày tràn đầy niềm vui và hạnh phúc ❤️</p>
+        <button onclick="location.reload()">Kết Thúc</button>
+    </div>
+
+    <div id="leaf-container"></div>
+
+    <audio id="bgMusic" loop>
+        <source src="nhacnen/WhoveDMfegk.mp3" type="audio/mpeg">
+    </audio>
+
     <script src="script.js"></script>
-    <div class="curtain left-curtain"></div>
-    <div class="curtain right-curtain"></div>
-  </body>
+</body>
 </html>

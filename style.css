@@ -1,114 +1,111 @@
+/* --- 1. ĐỊNH DẠNG CHUNG --- */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-
-  /* Căn giữa toàn màn hình */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-
-  overflow: hidden;
+    margin: 0; padding: 0;
+    display: flex; justify-content: center; align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
 }
 
-/* Khung chính */
-.container {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  padding: 40px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+.box-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px; border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    max-width: 450px; width: 90%;
+    z-index: 10;
+    transition: all 0.5s ease;
 }
-
-/* Tiêu đề */
-h1 {
-  color: white;
-  font-size: 35px;
-  margin-bottom: 15px;
+canvas {
+    filter: blur(0.4px) contrast(1.2); /* Làm các tia lửa trông mềm mại và rực rỡ hơn */
 }
+.hidden { display: none !important; }
+.fade-out { opacity: 0; pointer-events: none; transition: 0.8s; }
 
-p {
-  color: white;
-  font-size: 18px;
+/* --- 2. CÁNH THIỆP --- */
+.card-flap {
+    position: fixed; top: 0; width: 50%; height: 100vh;
+    background-color: #ff4d6d; z-index: 1000;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex; align-items: center; justify-content: center;
 }
+#card-left { left: 0; transform: translateX(-100%); border-right: 2px solid #ff758c; }
+#card-right { right: 0; transform: translateX(100%); border-left: 2px solid #ff758c; }
+.card-flap.close { transform: translateX(0) !important; }
 
-/* Ô nhập */
-input {
-  padding: 12px;
-  border-radius: 25px;
-  border: none;
-  width: 250px;
-  text-align: center;
-  margin-top: 15px;
+#card-left::after, #card-right::after {
+    color: gold; font-size: 4rem; font-weight: bold; position: absolute;
 }
+#card-left::after { content: "Chúc Mừng"; right: 30%; }
+#card-right::after { content: "Ngày 8/3"; left: 30%; }
 
-/* Nút */
+/* --- 3. HOA NỞ --- */
+.flower-container {
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: 2000; opacity: 0;
+}
+.flower-container.show-bloom { opacity: 1; animation: topDownBloom 2s forwards; }
+.flower-bloom { position: relative; width: 150px; height: 150px; }
+.petal {
+    position: absolute; background-color: #FFC0CB; border-radius: 50%;
+    width: 30px; height: 30px; top: 60px; left: 60px; transition: 1s ease;
+}
+.pollen {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 25px; height: 25px; background-color: gold; border-radius: 50%; box-shadow: 0 0 15px gold;
+}
+.flower-bloom.opened .petal { width: 80px; height: 80px; top: 35px; left: 35px; }
+.flower-bloom.opened .p1 { transform: rotate(0deg) translateY(-45px); }
+.flower-bloom.opened .p2 { transform: rotate(72deg) translateY(-45px); }
+.flower-bloom.opened .p3 { transform: rotate(144deg) translateY(-45px); }
+.flower-bloom.opened .p4 { transform: rotate(216deg) translateY(-45px); }
+.flower-bloom.opened .p5 { transform: rotate(288deg) translateY(-45px); }
+@keyframes topDownBloom { to { transform: translate(-50%, -50%) scale(1.2); } }
+
+/* --- 4. PHÁO HOA & MÀN HÌNH CUỐI --- */
+#fireworks-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: #000; z-index: 5000;
+}
+.final-box { z-index: 6000; background: transparent; box-shadow: none; }
+.glow-text {
+    color: #fff; font-size: 3rem; text-align: center;
+    text-shadow: 0 0 10px #ff4d6d, 0 0 30px #ff4d6d;
+    animation: glow 1.5s infinite alternate;
+}
+@keyframes glow { to { transform: scale(1.1); text-shadow: 0 0 20px #ff758c, 0 0 40px #ff758c; } }
+
+/* --- 5. INPUT & BUTTON --- */
+input[type="text"] {
+    padding: 12px; width: 80%; border: 2px solid #ff758c; border-radius: 25px; margin: 20px 0; outline: none;
+}
 button {
-  padding: 12px 25px;
-  margin-top: 20px;
-  border-radius: 25px;
-  border: none;
-  background: white;
-  color: #ff4b5c;
-  cursor: pointer;
-  transition: 0.3s;
+    padding: 12px 30px; background: #ff4d6d; color: white; border: none; border-radius: 25px; cursor: pointer; font-weight: bold;
 }
 
-button:hover {
-  background: #ff4b5c;
-  color: white;
+.leaf { position: absolute; top: -20px; animation: fall linear forwards; z-index: 1; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+#leaf-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 5; /* Nằm dưới thiệp và các box nội dung */
+    transition: opacity 0.5s ease;
+}
+/* Hiệu ứng hiện hình mượt mà cho màn hình cuối */
+.fade-in-final {
+    animation: fadeInEffect 1.5s ease-out forwards;
 }
 
-/* Hiệu ứng chuyển cảnh */
-.fade-out {
-  animation: fadeOut 0.8s forwards;
-}
-
-.fade-in {
-  animation: fadeIn 1s;
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-/* Cánh đóng thiệp */
-.curtain {
-  position: fixed;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  background: #ff4b5c;
-  z-index: 999;
-  transition: transform 1s ease;
-}
-
-.left-curtain {
-  left: 0;
-  transform: translateX(-100%);
-}
-
-.right-curtain {
-  right: 0;
-  transform: translateX(100%);
-}
-
-.curtain.active.left-curtain {
-  transform: translateX(0);
-}
-
-.curtain.active.right-curtain {
-  transform: translateX(0);
+@keyframes fadeInEffect {
+    from { 
+        opacity: 0; 
+        transform: scale(0.9) translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
 }
