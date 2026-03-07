@@ -5,7 +5,7 @@ const nameInput = document.getElementById('nameInput');
 const bgMusic = document.getElementById('bgMusic');
 
 const specialGreetings = {
-    "pham thi huyen trang": "Chúc Hai ngày 8/3 vui vẻ hạnh phúc,nhận được nhiều lời chúc , luôn thành công trong công việc và đặc biệt kiếm được thật nhiều tiền bao tui (hẹ hẹ hẹ hẹ)",
+    "anh trang": "Chúc Hai ngày 8/3 vui vẻ hạnh phúc,nhận được nhiều lời chúc , luôn thành công trong công việc và đặc biệt kiếm được thật nhiều tiền bao tui (hẹ hẹ hẹ hẹ)",
     "co be bat ca": "Chúc em có một ngày 8/3 thật vui vẻ, tràn đầy năng lượng và hạnh phúc. Mong em luôn xinh đẹp, tự tin, thành công trong mọi việc và được yêu thương thật nhiều mỗi ngày! Chúc em cố gắng học tập tốt để đủ điểm để vào trường đại học em mong muốn (cảm ơn anh thì cho xin tấm ảnh e đẹp nhất ik hẹ hẹ hẹ)",
     "me":"Mẹ yêu ơi, nhân ngày 8/3 con chúc mẹ luôn mạnh khỏe, hạnh phúc và lúc nào cũng nở nụ cười thật tươi. Cảm ơn mẹ vì đã luôn yêu thương, hy sinh và chăm sóc cho con từng ngày. Con mong mẹ luôn bình an, vui vẻ và mãi là người phụ nữ tuyệt vời nhất trong lòng con 💐❤️",
     "van anh":"Chúc em gái của anh có một ngày 8/3 thật vui vẻ, tràn đầy hạnh phúc và luôn rạng rỡ như những bông hoa mùa xuân. Mong em luôn xinh đẹp, học giỏi, thành công và gặp nhiều may mắn .(Xong rồi cho xin 20k kkkk))",
