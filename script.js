@@ -6,11 +6,11 @@ const bgMusic = document.getElementById('bgMusic');
 
 const specialGreetings = {
     "pham thi huyen trang": "Chúc Hai ngày 8/3 vui vẻ hạnh phúc,nhận được nhiều lời chúc , luôn thành công trong công việc và đặc biệt kiếm được thật nhiều tiền bao tui (hẹ hẹ hẹ hẹ)",
-    "co be bat ca": "Chúc em có một ngày 8/3 thật vui vẻ, tràn đầy năng lượng và hạnh phúc. Mong em luôn xinh đẹp, tự tin, thành công trong mọi việc và được yêu thương thật nhiều mỗi ngày! Chúc em cố gắng học tập tốt để đủ điểm để vào trường đại học em mong muốn (cảm ơn anh thì cho xin tấm ảnh e cảm thấy xinh nhất trong máy e ik hẹ hẹ hẹ)",
+    "co be bat ca": "Chúc em có một ngày 8/3 thật vui vẻ, tràn đầy năng lượng và hạnh phúc. Mong em luôn xinh đẹp, tự tin, thành công trong mọi việc và được yêu thương thật nhiều mỗi ngày! Chúc em cố gắng học tập tốt để đủ điểm để vào trường đại học em mong muốn (cảm ơn anh thì cho xin tấm ảnh e đẹp nhất ik hẹ hẹ hẹ)",
     "me":"Mẹ yêu ơi, nhân ngày 8/3 con chúc mẹ luôn mạnh khỏe, hạnh phúc và lúc nào cũng nở nụ cười thật tươi. Cảm ơn mẹ vì đã luôn yêu thương, hy sinh và chăm sóc cho con từng ngày. Con mong mẹ luôn bình an, vui vẻ và mãi là người phụ nữ tuyệt vời nhất trong lòng con 💐❤️",
     "van anh":"Chúc em gái của anh có một ngày 8/3 thật vui vẻ, tràn đầy hạnh phúc và luôn rạng rỡ như những bông hoa mùa xuân. Mong em luôn xinh đẹp, học giỏi, thành công và gặp nhiều may mắn .(Xong rồi cho xin 20k kkkk))",
-    "chim canh cut":"Chúc 'em bé' có một ngày 8/3 thật vui vẻ, đáng nhớ và tràn ngập tiếng cười. Mong em luôn hồn nhiên, xinh xắn, học giỏi và ngày càng tự tin hơn nhé! 🌷💐(Chúc em ăn mau chóng lớn sớm cao hơn hẹ hẹ )(Muốn cảm ơn anh cho xin tấm ảnh e thấy đẹp nhất của e ik :)))",
-    "kim dung":"Chúc chị có một ngày 8/3 thật ý nghĩa, luôn xinh đẹp, thành công và hạnh phúc trong công việc cũng như cuộc sống. Mong chị luôn giữ được nụ cười rạng rỡ, tinh thần lạc quan và gặp nhiều may mắn trên con đường mình chọn 💐💖(Nên rep tin nhắn nhanh hơn nhá và lời chúc của chị hết 500k chuyển khoản hay tiền mặt ạ:)))",
+    "chim canh cut":"Chúc 'em bé' có một ngày 8/3 thật vui vẻ, đáng nhớ và tràn ngập tiếng cười. Mong em luôn hồn nhiên, xinh xắn, học giỏi và ngày càng tự tin hơn nhé! 🌷💐(Chúc em ăn mau chóng lớn sớm cao hơn hẹ hẹ )(Muốn cảm ơn anh cho xin tấm ảnh của e ik :)))",
+    "kim dung":"Chúc chị có một ngày 8/3 thật ý nghĩa, luôn xinh đẹp, thành công và hạnh phúc trong công việc cũng như cuộc sống. Mong chị luôn giữ được nụ cười rạng rỡ, tinh thần lạc quan và gặp nhiều may mắn trên con đường mình chọn 💐💖(Lời chúc của chị hết 500k chuyển khoản hay tiền mặt ạ:)))",
 };
 const defaultGreeting = "Chúc bạn có một ngày 8/3 thật rực rỡ, tràn đầy niềm vui và tiếng cười, nhận được thật nhiều hoa, quà và những lời chúc yêu thương từ mọi người xung quanh. Mong mọi điều tốt đẹp nhất sẽ đến với bạn hôm nay và mãi mãi.";
 function removeVietnameseTones(str) {
